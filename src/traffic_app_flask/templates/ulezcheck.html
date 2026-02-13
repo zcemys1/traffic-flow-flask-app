@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %} New Page {% endblock title %}
+
+{% block content %}
+<h1 class="text-center mt-4 mb-4 fw-bold">Check your vehicle compliancy</h1>
+
+
+<iframe src="https://www.webuyanycar.com/free-car-check/emissions-check/" width="100%" height="500"
+    title="Check your vehicle" class="mb-5"></iframe>
+
+
+<h2 style="text-align:center;" class="mb-5">Choose your vehicle fuel type</h2>
+
+
+<form action="/ulez_check" method="POST">
+    <fieldset>
+        <legend>Fuel Type:</legend>
+        <input type="radio" id="petrol" name="fuel_type" value="Petrol" required>
+        <label for="petrol">Petrol</label><br>
+
+        <input type="radio" id="diesel" name="fuel_type" value="Diesel">
+        <label for="diesel">Diesel</label><br>
+
+        <input type="radio" id="electric" name="fuel_type" value="Electric">
+        <label for="electric">Electric</label>
+    </fieldset>
+
+
+    <div class="mb-3">
+        <label for="year">Vehicle Registration Year:</label>
+        <select id="year" name="year" required>
+            {% for y in range(1990, 2024) %}
+            <option value="{{ y }}">{{ y }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-primary mt-3" value="Submit">
+    </div>
+</form>
+
+
+{% if result %}
+<h3>ULEZ Compliance Result:</h3>
+<p>{{ result }}</p>
+{% endif %}
+
+<a href="/">Go back to the homepage</a>
+{% endblock content %}

@@ -1,0 +1,13 @@
+.nav-link:hover {
+    background-color: rgb(30, 7, 235);
+    border-radius: 5px;
+  }
+  
+  .min-vh-100 {
+    min-height: 100vh;
+  }
+  
+  body {
+    background-color: #eef7ff;;
+  }
+  

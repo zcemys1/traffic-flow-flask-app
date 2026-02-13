@@ -1,0 +1,27 @@
+# Documentation for pyproject.toml: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+# name and version are mandatory, change the values but do not delete them.
+[project]
+name = "comp0035-cw2"
+version = "2025.1"
+
+
+[tool.pytest.ini_options]
+addopts = "-v --cov=src/traffic_app_flask --cov-report html"
+testpaths = ["tests"]
+pythonpath= ["src"]
+filterwarnings = [
+    "error",
+]
+
+#[tool.coverage.run]
+#branch = true
+##source = ["src"] 
+#source = ["flaskstarter", "tests"]
+
+#[tool.coverage.paths]
+##source = ["src"]
+#source = ["src", "flaskstarter"]

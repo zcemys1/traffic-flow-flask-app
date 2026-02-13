@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %} Check Borough Traffic {% endblock title %}
+
+
+{% block content %}
+
+<h1 style="text-align:center;">Check the traffic status of a borough</h1>
+
+<form method="POST" action="/flow/">
+    {{ form.csrf_token }}
+    {{ form.borough.label }} 
+    {{ form.borough(class_="form-control") }}
+    <input type="submit" value="Go" class="btn btn-primary mt-2">
+</form>
+
+<div id="flow-latest" class="mt-4"><br> 
+    {% if borough %}
+        <p class="text-bg-info p-2">Traffic flow data for: <strong>{{ borough.borough_name }}</strong></p>
+    {% endif %}
+</div>
+
+
+{% if traffic_data %}
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Cars</th>
+                <th>All Vehicles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ traffic_data.year }}</td>
+                <td>{{ traffic_data.cars }} million vehicle kilometres</td>
+                <td>{{ traffic_data.all_vehicles }} million vehicle kilometres</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% elif borough %}
+    <p class="mt-3">No traffic data found for {{ borough.borough_name }}.</p>
+{% endif %}
+
+
+
+<hr class="my-4">
+<h4>Want to look back in time for your borough?</h4>
+
+<form method="POST" action="/flow/">
+    {{ form.csrf_token }}
+
+    <div class="mb-3">
+        <label for="year">Select a year:</label>
+        <select name="year" class="form-select" required>
+            {% for y in range(1993, 2024) %}
+            <option value="{{ y }}">{{ y }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Select vehicle type:</label><br>
+        <input type="radio" name="vehicle_type" value="cars" required> Cars<br>
+        <input type="radio" name="vehicle_type" value="all_vehicles"> All Vehicles
+    </div>
+
+    <input type="hidden" name="borough_id" value="{{ borough.borough_id }}">
+    <button type="submit" name="historic_submit" value="1" class="btn btn-secondary">Submit</button>
+</form>
+
+
+{% if historic_result %}
+    <div id="flow-historical"class="mt-4">
+        <h5>Historic Traffic Data</h5>
+        {% if historic_result.value %}
+            <p>
+                In {{ historic_result.year }}, 
+                there were <strong>{{ historic_result.value }}  million vehicle kilometres</strong> 
+                {{ historic_result.vehicle_type.replace('_', ' ') }} in 
+                {{ borough.borough_name }}.
+            </p>
+        {% else %}
+            <p>No data found for {{ historic_result.year }} in {{ borough.borough_name }}.</p>
+        {% endif %}
+    </div>
+{% endif %}
+
+
+    <a href="/">Go back to the homepage</a>
+{% endblock content %}

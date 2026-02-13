@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %} Dashboard 1 {% endblock title %}
+
+
+{% block content %}
+
+
+<style>
+    body {
+        background-color: #eef7ff;
+        /* Light blue background */
+    }
+
+    p {
+        border: 10px solid powderblue;
+        margin: 100px;
+    }
+</style>
+
+
+<h1 style="text-align:center;"><abbr title="Ultra Low Emission Zone">ULEZ</abbr> Analysis</h1>
+<hr>
+<h3>
+
+    <style>
+        h3 {
+            text-align: center;
+            color: #0016dd;
+            /* Blue */
+        }
+    </style>
+    Where are you trying to go?
+</h3>
+
+<p><a href="/dash_app/" class="btn btn-info btn-lg d-block">Find out more about how traffic has affected people</a></p>
+
+
+
+<p><a href="{{ url_for('bp.ulez_check') }}" class="btn btn-info btn-lg d-block">Check your vehicle</a></p>
+<p><a href="{{ url_for('bp.flow') }}" class="btn btn-info btn-lg d-block">Traffic Status</a></p>
+<p><a href="{{ url_for('bp.data_request') }}" class="btn btn-info btn-lg d-block">Data Request</a></p>
+{% endblock content %}
