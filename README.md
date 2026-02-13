@@ -1,8 +1,17 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=18599580)
-# Starter Repo for Traffic Flow App 
+# Traffic Flow Analysis Web Application
 
-1. Clone the project in VS Code, PyCharm or other Python IDE from GitHub
-2. The coursework code has the following structure:
+This project is a Flask-based web application for exploring UK traffic flow data,
+with a focus on London borough-level analysis and transport trends.
+
+The application allows users to query traffic data by borough, year and vehicle type,
+and presents results dynamically through a web interface.
+
+---
+
+## Project Structure
+
+The application follows a modular Flask structure:
 
 comp0034-cw2-zcemys1/
 ├── .github/                     # GitHub Actions setup (CI/CD)
@@ -51,6 +60,29 @@ comp0034-cw2-zcemys1/
 ├── README.md                   # Project overview and instructions
 ├── requirements.txt            # Python dependencies
 └── .coverage                   # Coverage data file
+---
+
+## Features
+
+- Borough-level traffic lookup  
+- Historic traffic data queries  
+- Data export functionality  
+- ULEZ-related tools  
+- Modular Flask structure  
+- Unit and integration testing  
+
+---
+
+## Technologies Used
+
+- Python  
+- Flask  
+- SQLite  
+- SQLAlchemy  
+- WTForms  
+- Pytest  
+
+---
 
 3. Create and activate a virtual environment e.g. `.venv`
 4. Install the project code using `pip install -e .`.
@@ -86,3 +118,12 @@ Press CTRL+C to quit
 
 
 7. Please change the app name to your own and not 'flaskstarter'. Use the IDE and Refactor > Rename so that all associated imports etc are changed to reflect the new name.
+
+
+---
+
+## Notes
+
+This project was developed as part of undergraduate Biomedical Engineering coursework,
+and demonstrates backend development, database integration, testing and structured
+Flask application design.
