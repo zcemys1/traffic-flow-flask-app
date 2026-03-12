@@ -82,6 +82,11 @@ comp0034-cw2-zcemys1/
 - WTForms  
 - Pytest  
 
+## Screenshots
+
+### Home Page
+![Home Page](images/home.png)
+
 ---
 
 3. Create and activate a virtual environment e.g. `.venv`
