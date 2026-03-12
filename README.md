@@ -85,7 +85,26 @@ comp0034-cw2-zcemys1/
 ## Screenshots
 
 ### Home Page
+
 ![Home Page](images/home.png)
+
+### Dashboard
+![Dashboard](images/dashapp.png)
+
+### Vehicle Compliance Check
+![Vehicle Compliance Check](images/compliance_check.png)
+
+### Data Request
+![Data Download](images/data_request.png)
+
+### Historic Traffic Data
+![Old Traffic Data](images/historic_traffic_flow.png)
+
+### Traffic Flow
+![Traffic Flow](images/trafficflow.png)
+
+### Traffic Flow Results
+![Traffic Flow Results](images/traffic_flow_results.png)
 
 ---
 
